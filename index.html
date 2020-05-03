@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./app.js"></script>
   <title>Covid-19 Tracker</title>
 </head>
 <body>
-  <div id="main"></div>
+  <div id="main">
+    <input class="input" id="input" placeholder="entry"></input>
+    <button id="button" class="button">button</button>
+  </div>
+  <!-- Look for the order of the js injection to avoid runtime errors -->
+  <script src="./app.js"></script>
 </body>
 </html>

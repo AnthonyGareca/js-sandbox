@@ -51,13 +51,52 @@ player.play('Patience');
 player.pause();
 player.next();
 
-const pc = {
-  cpu: 'Rayzen 5 3600',
+const objectPC = {
+  cpu: 'Ryzen 5 3600',
   ram: 16,
   gpu: 'nvidia 1660 ti',
   motherboard: 'msi 4ax',
 }
 
-for (key in pc) {
-  console.log(`${key}: ${pc[key]}`);
+for (key in objectPC) {
+  console.log(`${key}: ${objectPC[key]}`);
 }
+
+// node types
+// 1: Elements
+// 2: Attributes
+// 3: TextNode
+// 8: comments
+// 9: documents
+// 10: doctype
+
+// In traversing use
+// .children to get children nodes
+// .childNodes to get html elements includes break lines between tags
+// .parentElement to get parent
+// .previousElementSibling to get previous brother element in the document
+// .nextElementSibling to get next brother element in the document
+
+// .querySelector allows use selectors like CSS3
+let currentButton = document.querySelector('#button');
+// click dblclick mouseenter mouseleave mouseover mouseout mousedown mouseup mousemove 
+currentButton.addEventListener('click', getEvent);
+
+let currentInput = document.querySelector('.input');
+// keydown keyup keypress focus blur cut copy paste input change
+currentInput.addEventListener('keydown', getEvent);
+
+// if using variables the order is important
+function getEvent (e) {
+  // prevent default action
+  e.preventDefault();
+  console.log(`Event: ${e.type}`);
+  // prevent event bubbling
+  e.stopPropagation();
+}
+
+// Delegations in js
+// create a general event listener
+// then from the target of the event filter them
+// to perform an action or another.
+
